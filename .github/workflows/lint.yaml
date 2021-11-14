@@ -1,0 +1,61 @@
+name: Lint
+
+on:
+    push:
+        branches:
+            - main
+    pull_request:
+
+jobs:
+    php-cs-fixer:
+        name: PHP-CS-Fixer
+
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v2
+
+            - name: Install PHP with extensions
+              uses: shivammathur/setup-php@v2
+              with:
+                  php-version: '8.0'
+                  coverage: none
+                  tools: composer:v2
+
+            - name: Install Composer dependencies (highest)
+              uses: ramsey/composer-install@v1
+              with:
+                  dependency-versions: highest
+                  composer-options: --prefer-dist --prefer-stable
+
+            - name: Lint PHP files
+              run: vendor/bin/php-cs-fixer fix
+
+    composer:
+        name: Composer
+
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v2
+
+            - name: Install PHP with extensions
+              uses: shivammathur/setup-php@v2
+              with:
+                  php-version: '8.0'
+                  coverage: none
+                  tools: composer:v2
+
+            - name: Install Composer dependencies (highest)
+              uses: ramsey/composer-install@v1
+              with:
+                  dependency-versions: highest
+                  composer-options: --prefer-dist --prefer-stable
+
+            - name: Lint Composer
+              run: composer normalize --dry-run
+
+            - name: Validate Composer
+              run: composer validate
