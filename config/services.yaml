@@ -8,6 +8,10 @@ services:
     App\:
         resource: '../src/'
         exclude:
-            - '../src/Example/Test/Domain/Entity/'
+            - '../src/Git/PullRequest/Domain/Entity/'
             - '../src/Shared/Domain/Entity/'
             - '../src/Kernel.php'
+
+    App\Git\PullRequest\Infrastructure\Controller\:
+        resource: ../src/Git/PullRequest/Infrastructure/Controller
+        public: true

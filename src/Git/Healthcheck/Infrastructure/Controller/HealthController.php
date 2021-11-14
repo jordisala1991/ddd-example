@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Example\Healthcheck\Infrastructure\Controller;
+namespace App\Git\Healthcheck\Infrastructure\Controller;
 
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;

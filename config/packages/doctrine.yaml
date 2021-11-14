@@ -6,24 +6,12 @@ doctrine:
         naming_strategy: doctrine.orm.naming_strategy.underscore_number_aware
         auto_mapping: true
         mappings:
-            Shared:
+            GitPullRequest:
                 is_bundle: false
                 type: attribute
-                dir: '%kernel.project_dir%/src/Shared/Domain/Entity'
-                prefix: 'App\Shared\Domain\Entity'
-                alias: Shared
-            ExampleShared:
-                is_bundle: false
-                type: attribute
-                dir: '%kernel.project_dir%/src/Example/Shared/Domain/Entity'
-                prefix: 'App\Shared\Domain\Entity'
-                alias: ExampleShared
-            ExampleTest:
-                is_bundle: false
-                type: attribute
-                dir: '%kernel.project_dir%/src/Example/Test/Domain/Entity'
-                prefix: 'App\Example\Test\Domain\Entity'
-                alias: ExampleTest
+                dir: '%kernel.project_dir%/src/Git/PullRequest/Domain/Entity'
+                prefix: 'App\Git\PullRequest\Domain\Entity'
+                alias: GitPullRequest
 
 when@prod:
     doctrine:
