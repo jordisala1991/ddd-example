@@ -12,7 +12,7 @@ return (new PhpCsFixer\Config())
         'array_syntax' => ['syntax' => 'short'],
         'combine_consecutive_issets' => true,
         'combine_consecutive_unsets' => true,
-        'concat_space' => ['spacing' => 'one'],
+        'concat_space' => ['spacing' => 'none'],
         'header_comment' => ['header' => "\n"],
         'declare_strict_types' => true,
         'no_extra_blank_lines' => true,
@@ -23,9 +23,9 @@ return (new PhpCsFixer\Config())
         'ordered_imports' => true,
         'phpdoc_align' => ['align' => 'left'],
         'phpdoc_line_span' => [
-            'const' => 'single',
-            'property' => 'single',
-            'method' => 'single',
+            'const' => 'multi',
+            'property' => 'multi',
+            'method' => 'multi',
         ],
         'phpdoc_order' => true,
         'compact_nullable_typehint' => true,
@@ -33,7 +33,6 @@ return (new PhpCsFixer\Config())
         'strict_comparison' => true,
         'strict_param' => true,
         'php_unit_strict' => true,
-        'php_unit_test_annotation' => ['style' => 'annotation'],
     ])
     ->setRiskyAllowed(true)
     ->setFinder($finder)
