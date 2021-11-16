@@ -24,11 +24,12 @@ final class GithubPullRequestRepository implements PullRequestRepositoryInterfac
 
     public function findAll(Repository $repository): PullRequests
     {
-        $responses = [];
         $pullRequests = [];
 
         $response = $this->pulls($repository);
         $totalPages = $this->getTotalPages($response);
+
+        $responses = [$response];
 
         for ($page = 2; $page <= $totalPages; ++$page) {
             $responses[] = $this->pulls($repository, $page);
