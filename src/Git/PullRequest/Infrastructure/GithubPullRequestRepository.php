@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Git\PullRequest\Infrastructure;
 
+use App\Git\PullRequest\Domain\Branch;
 use App\Git\PullRequest\Domain\PullRequest;
 use App\Git\PullRequest\Domain\PullRequestRepositoryInterface;
 use App\Git\PullRequest\Domain\PullRequests;
@@ -22,16 +23,17 @@ final class GithubPullRequestRepository implements PullRequestRepositoryInterfac
     ) {
     }
 
-    public function findAll(Repository $repository): PullRequests
+    public function findAll(Repository $repository, Branch $branch): PullRequests
     {
-        $responses = [];
         $pullRequests = [];
 
-        $response = $this->pulls($repository);
+        $response = $this->pulls($repository, $branch);
         $totalPages = $this->getTotalPages($response);
 
+        $responses = [$response];
+
         for ($page = 2; $page <= $totalPages; ++$page) {
-            $responses[] = $this->pulls($repository, $page);
+            $responses[] = $this->pulls($repository, $branch, $page);
         }
 
         foreach ($responses as $response) {
@@ -47,12 +49,13 @@ final class GithubPullRequestRepository implements PullRequestRepositoryInterfac
         return new PullRequests($pullRequests);
     }
 
-    private function pulls(Repository $repository, int $page = 1): ResponseInterface
+    private function pulls(Repository $repository, Branch $branch, int $page = 1): ResponseInterface
     {
         return $this->githubClient->request('GET', sprintf(static::PULLS_PATH, $repository->owner(), $repository->name()), [
             'query' => [
                 'state' => 'all',
                 'per_page' => static::PULLS_PER_PAGE,
+                'base' => $branch->name(),
                 'page' => $page,
             ],
         ]);
