@@ -18,7 +18,7 @@ final class PullRequestController
     }
 
     #[Route(path: '/api/github/{owner}/{repository}/pull-requests', name: 'repository_pull_requests')]
-    public function __invoke(string $owner, string $repository): Response
+    public function pullRequests(string $owner, string $repository): Response
     {
         $pullRequests = $this->pullRequests->findPullRequests(new Repository($owner, $repository));
 
