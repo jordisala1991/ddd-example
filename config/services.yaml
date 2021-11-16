@@ -5,6 +5,15 @@ services:
         autowire: true
         autoconfigure: true
 
+    _instanceof:
+        App\Shared\Domain\CommandHandler:
+            tags:
+                - { name: messenger.message_handler, bus: command.bus }
+
+        App\Shared\Domain\QueryHandler:
+            tags:
+                - { name: messenger.message_handler, bus: query.bus }
+
     App\:
         resource: '../src/'
         exclude:
@@ -12,6 +21,6 @@ services:
             - '../src/Shared/Domain/Entity/'
             - '../src/Kernel.php'
 
-    App\Git\PullRequest\Infrastructure\Controller\:
-        resource: ../src/Git/PullRequest/Infrastructure/Controller
+    App\Git\PullRequest\Infrastructure\Rest\:
+        resource: ../src/Git/PullRequest/Infrastructure/Rest
         public: true
