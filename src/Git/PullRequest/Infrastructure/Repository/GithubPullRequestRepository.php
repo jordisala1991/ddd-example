@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace App\Git\PullRequest\Infrastructure;
+namespace App\Git\PullRequest\Infrastructure\Repository;
 
 use App\Git\PullRequest\Domain\Branch;
 use App\Git\PullRequest\Domain\PullRequest;
-use App\Git\PullRequest\Domain\PullRequestRepositoryInterface;
 use App\Git\PullRequest\Domain\PullRequests;
 use App\Git\PullRequest\Domain\Repository;
+use App\Git\PullRequest\Domain\Repository\PullRequestRepositoryInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 use Symfony\Contracts\HttpClient\ResponseInterface;

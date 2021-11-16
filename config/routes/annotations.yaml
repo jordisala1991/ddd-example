@@ -1,7 +1,7 @@
-git_healthcheck_controllers:
-    resource: ../../src/Git/Healthcheck/Infrastructure/Controller/
+git_healthcheck_rest:
+    resource: ../../src/Git/Healthcheck/Infrastructure/Rest/
     type: annotation
 
-git_pull-request_controllers:
-    resource: ../../src/Git/PullRequest/Infrastructure/Controller/
+git_pull-request_rest:
+    resource: ../../src/Git/PullRequest/Infrastructure/Rest/
     type: annotation
