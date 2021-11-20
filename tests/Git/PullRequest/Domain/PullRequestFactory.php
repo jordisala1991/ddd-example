@@ -10,6 +10,9 @@ use Zenstruck\Foundry\ModelFactory;
  */
 class PullRequestFactory extends ModelFactory
 {
+    /**
+     * @return array<string, mixed>
+     */
     public function getDefaults(): array
     {
         return [

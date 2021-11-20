@@ -6,7 +6,6 @@ namespace App\Tests\Git\PullRequest\Infrastructure\Rest;
 
 use Symfony\Bundle\FrameworkBundle\KernelBrowser;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
-use Zenstruck\Foundry\Test\Factories;
 
 final class PullRequestControllerTest extends WebTestCase
 {
@@ -32,8 +31,17 @@ final class PullRequestControllerTest extends WebTestCase
         $this->assertResponseStatusCodeSame(200);
     }
 
+    /**
+     * @return array<string, mixed>
+     */
     private function getJsonResponse(): array
     {
-        return json_decode($this->client->getResponse()->getContent(), true);
+        $content = $this->client->getResponse()->getContent();
+
+        if (false === $content) {
+            return [];
+        }
+
+        return json_decode($content, true);
     }
 }
