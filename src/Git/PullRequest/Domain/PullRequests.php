@@ -17,6 +17,9 @@ final class PullRequests
     ) {
     }
 
+    /**
+     * @param PullRequest[] $pullRequests
+     */
     public static function build(array $pullRequests): self
     {
         return new self($pullRequests);

@@ -20,6 +20,11 @@ class FindPullRequestPresenter implements QueryPresenter
         return new self($pullRequests);
     }
 
+    /**
+     * @return array<int, array{
+     *     name: string
+     * }>
+     */
     public function read(): array
     {
         return array_map(function (PullRequest $pullRequest): array {
