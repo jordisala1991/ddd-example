@@ -12,14 +12,17 @@ final class PullRequests
     /**
      * @param PullRequest[] $pullRequests
      */
-    public function __construct(
-        private array $pullRequests = []
+    private function __construct(
+        private array $pullRequests
     ) {
     }
 
-    public function addPullRequest(PullRequest $pullRequest): void
+    /**
+     * @param PullRequest[] $pullRequests
+     */
+    public static function build(array $pullRequests): self
     {
-        $this->pullRequests[] = $pullRequest;
+        return new self($pullRequests);
     }
 
     /**
@@ -28,15 +31,5 @@ final class PullRequests
     public function pullRequests(): array
     {
         return $this->pullRequests;
-    }
-
-    /**
-     * @return PullRequestArray[]
-     */
-    public function toArray(): array
-    {
-        return array_map(function (PullRequest $pullRequest): array {
-            return $pullRequest->toArray();
-        }, $this->pullRequests());
     }
 }

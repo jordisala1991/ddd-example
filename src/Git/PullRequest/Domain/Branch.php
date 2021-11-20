@@ -6,9 +6,14 @@ namespace App\Git\PullRequest\Domain;
 
 final class Branch
 {
-    public function __construct(
+    private function __construct(
         private string $name
     ) {
+    }
+
+    public static function build(string $name): self
+    {
+        return new self($name);
     }
 
     public function name(): string
