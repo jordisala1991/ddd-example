@@ -23,7 +23,7 @@ class PullRequestFactory extends ModelFactory
     protected function initialize(): static
     {
         return $this->withoutPersisting()->instantiateWith(function (array $attributes, string $class): object {
-            return $class::fromArray($attributes);
+            return PullRequest::fromArray($attributes);
         });
     }
 

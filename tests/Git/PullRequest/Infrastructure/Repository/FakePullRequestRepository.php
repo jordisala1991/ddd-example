@@ -19,8 +19,14 @@ final class FakePullRequestRepository implements PullRequestRepositoryInterface
 
     public function findAll(Repository $repository, Branch $branch): PullRequests
     {
-        return PullRequests::build(array_map(function (Proxy $proxy): PullRequest {
-            return $proxy->object();
-        }, PullRequestFactory::createMany(10)));
+        return PullRequests::build(array_map(
+            /**
+             * @param Proxy<PullRequest> $proxy
+             */
+            function (Proxy $proxy): PullRequest {
+                return $proxy->object();
+            },
+            PullRequestFactory::createMany(10)
+        ));
     }
 }

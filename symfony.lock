@@ -188,6 +188,9 @@
             "tests/bootstrap.php"
         ]
     },
+    "psalm/plugin-phpunit": {
+        "version": "0.16.1"
+    },
     "psr/cache": {
         "version": "2.0.0"
     },
