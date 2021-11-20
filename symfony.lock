@@ -90,6 +90,9 @@
     "ergebnis/json-printer": {
         "version": "3.1.1"
     },
+    "fakerphp/faker": {
+        "version": "v1.16.0"
+    },
     "felixfbecker/advanced-json-rpc": {
         "version": "v3.2.1"
     },
@@ -242,6 +245,9 @@
     "symfony/amqp-messenger": {
         "version": "v5.3.7"
     },
+    "symfony/browser-kit": {
+        "version": "v5.3.4"
+    },
     "symfony/cache": {
         "version": "v5.3.10"
     },
@@ -274,6 +280,9 @@
     },
     "symfony/doctrine-messenger": {
         "version": "v5.3.10"
+    },
+    "symfony/dom-crawler": {
+        "version": "v5.3.7"
     },
     "symfony/dotenv": {
         "version": "v5.3.10"
@@ -393,6 +402,12 @@
     "symfony/process": {
         "version": "v5.3.7"
     },
+    "symfony/property-access": {
+        "version": "v5.3.8"
+    },
+    "symfony/property-info": {
+        "version": "v5.3.8"
+    },
     "symfony/redis-messenger": {
         "version": "v5.3.10"
     },
@@ -441,5 +456,24 @@
     },
     "webmozart/path-util": {
         "version": "2.3.0"
+    },
+    "zenstruck/assert": {
+        "version": "v1.0.0"
+    },
+    "zenstruck/callback": {
+        "version": "v1.4.1"
+    },
+    "zenstruck/foundry": {
+        "version": "1.14",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "1.9",
+            "ref": "26a9e6291d5fc0bfd1d673bc1d6cfe3c582c7678"
+        },
+        "files": [
+            "config/packages/dev/zenstruck_foundry.yaml",
+            "config/packages/test/zenstruck_foundry.yaml"
+        ]
     }
 }
