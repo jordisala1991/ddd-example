@@ -46,7 +46,7 @@ final class GithubPullRequestRepository implements PullRequestRepositoryInterfac
             }
         }
 
-        return new PullRequests($pullRequests);
+        return PullRequests::build($pullRequests);
     }
 
     private function pulls(Repository $repository, Branch $branch, int $page = 1): ResponseInterface

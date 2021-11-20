@@ -6,10 +6,15 @@ namespace App\Git\PullRequest\Domain;
 
 final class Repository
 {
-    public function __construct(
+    private function __construct(
         private string $owner,
         private string $name
     ) {
+    }
+
+    public static function build(string $owner, string $name): self
+    {
+        return new self($owner, $name);
     }
 
     public function owner(): string

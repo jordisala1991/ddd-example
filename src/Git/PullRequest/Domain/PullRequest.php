@@ -11,24 +11,9 @@ namespace App\Git\PullRequest\Domain;
  */
 final class PullRequest
 {
-    public function __construct(
+    private function __construct(
         private string $name
     ) {
-    }
-
-    public function name(): string
-    {
-        return $this->name;
-    }
-
-    /**
-     * @phpstan-return PullRequestArray
-     */
-    public function toArray(): array
-    {
-        return [
-            'name' => $this->name(),
-        ];
     }
 
     /**
@@ -39,5 +24,10 @@ final class PullRequest
         return new self(
             $data['title'],
         );
+    }
+
+    public function name(): string
+    {
+        return $this->name;
     }
 }
