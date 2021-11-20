@@ -16,7 +16,8 @@ jobs:
             matrix:
                 php-version:
                     - '8.0'
-                    - '8.1'
+                    # Commented until it gets released, since it breaks with Symfony
+                    # - '8.1'
                 dependencies: [highest]
                 include:
                     - php-version: '8.0'
