@@ -20,7 +20,7 @@ final class PullRequestController
     ) {
     }
 
-    #[Route(path: '/api/github/{owner}/{repository}/pull-requests', name: 'repository_pull_requests')]
+    #[Route(path: '/api/github/{owner}/{repository}/pull-requests', name: 'repository_pull_requests', methods: ['POST'])]
     public function pullRequests(Request $request, string $owner, string $repository): Response
     {
         $branch = $request->query->get('branch', 'main');

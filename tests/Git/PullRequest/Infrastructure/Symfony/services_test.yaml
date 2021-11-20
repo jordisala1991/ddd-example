@@ -1,0 +1,3 @@
+services:
+    App\Git\PullRequest\Domain\Repository\PullRequestRepositoryInterface:
+        class: App\Tests\Git\PullRequest\Infrastructure\Repository\FakePullRequestRepository

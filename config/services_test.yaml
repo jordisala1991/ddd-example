@@ -1,0 +1,2 @@
+imports:
+    - { resource: '../tests/Git/PullRequest/Infrastructure/Symfony/services_test.yaml' }
